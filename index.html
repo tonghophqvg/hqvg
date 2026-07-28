@@ -572,6 +572,7 @@ function nav(p){
   });
   if(p==='history')renderHistory();
   if(p==='stats')renderStats();
+  if(p==='bank')buildAdmin();
   window.scrollTo(0,0);
 }
 
@@ -927,7 +928,9 @@ function buildAccountTable(){
 }
 function populateDomainFilter(){
   const sel=document.getElementById('fdom');
-  DOMAINS.forEach(d=>{const o=document.createElement('option');o.textContent=d.name;sel.appendChild(o);});
+  if(!sel)return;
+  sel.innerHTML='<option value="">T&#7845;t c&#7843; l&#297;nh v&#7921;c</option>';
+  DOMAINS.forEach(d=>{const o=document.createElement('option');o.textContent=d.name;o.value=d.name;sel.appendChild(o);});
 }
 function renderBank(){
   const fd=document.getElementById('fdom')?.value||'';
